@@ -19,9 +19,9 @@ class MapGrid {
         return cells[0][0][0]
     }
     
-    func hex_to_pixel(x:Double, y:Double, z:Double) -> (Double, Double) {
-        let px = kCellWidth * 3/2 * x
-        let py = kCellWidth * sqrt(3) * (y + x/2)
+    func hex_to_pixel(h:Hex) -> (Double, Double) {
+        let px = kCellWidth * 3/2 * h.q
+        let py = kCellWidth * sqrt(3) * (h.r + h.q/2)
         return (px, py)
     }
     

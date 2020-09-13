@@ -55,17 +55,17 @@ class MapCell {
         
         var toLongRadians = fromLongRadians + atan2(sin(bearingInRadians) * sin(distanceInRadians) * cos(fromLatRadians), cos(distanceInRadians) - sin(fromLatRadians) * sin(toLatRadians))
         
-        toLongRadians = fmod((toLongRadians + 3*M_PI), (2*M_PI)) - M_PI
+        toLongRadians = fmod((toLongRadians + 3*Double.pi), (2*Double.pi)) - Double.pi
         
         return CLLocationCoordinate2D(latitude: degreesFromRadians(radians:toLatRadians), longitude: self.degreesFromRadians(radians:toLongRadians))
     }
     
     static func radiansFromDegrees(degrees:Double) -> Double {
-        return degrees * (M_PI/180.0);
+        return degrees * (Double.pi/180.0);
     }
     
     static func degreesFromRadians(radians:Double) -> Double {
-        return radians * (180/M_PI);
+        return radians * (180/Double.pi);
     }
 
 }
